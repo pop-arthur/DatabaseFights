@@ -21,6 +21,8 @@ CREATE TABLE Airports
     country VARCHAR(20)
 );
 
+
+
 CREATE TABLE Flights
 (
     id                SERIAL PRIMARY KEY,
@@ -34,3 +36,13 @@ CREATE TABLE Flights
     arrival_time      TIMESTAMP,
     flight_number     VARCHAR(20)
 );
+
+
+CREATE SEQUENCE flight_id_seq
+    START WITH 1000
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+ALTER TABLE Flights ALTER COLUMN id SET DEFAULT nextval('flight_id_seq');
