@@ -1,30 +1,71 @@
 import { useEffect, useState } from 'react';
 import { fetchFlights } from '../api/flights';
+import { fetchAirports } from '../api/airports';
 import FlightCard from '../components/FlightCard';
+import FlightSearchPanel from '../components/FlightSearchPanel';
 import './Dashboard.css';
 
 export default function Dashboard() {
-  const [flights, setFlights] = useState([]);
+  const [allFlights, setAllFlights] = useState([]);
+  const [filteredFlights, setFilteredFlights] = useState([]);
+  const [airportMap, setAirportMap] = useState({});
 
   useEffect(() => {
-    fetchFlights()
-      .then(data => setFlights(data.slice(0, 5)))
-      .catch(err => console.error(err));
+    Promise.all([fetchFlights(), fetchAirports()])
+      .then(([flights, airports]) => {
+        setAllFlights(flights);
+        setFilteredFlights(flights);
+        const airportDict = Object.fromEntries(
+          airports.map(airport => [airport.id, airport])
+        );
+        setAirportMap(airportDict);
+      })
+      .catch(console.error);
   }, []);
 
+  const handleSearch = (params) => {
+    if (!airportMap || Object.keys(airportMap).length === 0) {
+    console.warn('Airport map not ready yet.');
+    return;
+  }
+    const filtered = allFlights.filter(flight => {
+  const depCode = airportMap[flight.departure_airport]?.code?.toLowerCase();
+  const arrCode = airportMap[flight.arrival_airport]?.code?.toLowerCase();
+
   return (
-    <div className="dashboard-wrapper">
-      <h1 className="dashboard-title">Recent Flights</h1>
-      <div className="dashboard-grid">
-        {flights.map(flight => (
-          <FlightCard
-            key={flight.id}
-            from={flight.departure_airport}
-            to={flight.arrival_airport}
-            date={new Date(flight.departure_time).toLocaleString()}
-            price={flight.flight_number}
-          />
-        ))}
+    (!params.flight_number || flight.flight_number.toLowerCase().includes(params.flight_number.toLowerCase())) &&
+    (!params.departure_airport || depCode === params.departure_airport.toLowerCase()) &&
+    (!params.arrival_airport || arrCode === params.arrival_airport.toLowerCase()) &&
+    (!params.departure_time || flight.departure_time.startsWith(params.departure_time)) &&
+    (!params.arrival_time || flight.arrival_time.startsWith(params.arrival_time))
+  );
+});
+
+
+    setFilteredFlights(filtered);
+  };
+
+  return (
+    <div className="dashboard-container">
+      <div className="search-panel">
+        <FlightSearchPanel onSearch={handleSearch} />
+      </div>
+
+      <div className="dashboard-results">
+        <div className="dashboard-results-inner">
+          {filteredFlights.map(flight => (
+            <FlightCard
+              key={flight.id}
+              from={airportMap[flight.departure_airport]}
+              to={airportMap[flight.arrival_airport]}
+              departure={flight.departure_time}
+              arrival={flight.arrival_time}
+              flightNumber={flight.flight_number}
+              status={flight.status}
+              delay={flight.delay}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
