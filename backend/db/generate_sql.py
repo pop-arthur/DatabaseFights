@@ -30,7 +30,7 @@ flights_cleaned['status'] = 'ontime'
 flights_cleaned['delay'] = '00:00:00'
 flights_cleaned = flights_cleaned.dropna(subset=['airline_id'])
 
-with open("init.sql", "w", encoding="utf-8") as f:
+with open("init/0_init_tables.sql", "w", encoding="utf-8") as f:
     f.write("-- Airlines\n")
     for _, row in airlines_cleaned.iterrows():
         f.write(f"INSERT INTO Airlines (id, nam, code) VALUES ({int(row['id'])}, '{row['nam'][:10]}', '{row['code'][:10]}');\n")
