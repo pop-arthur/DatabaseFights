@@ -1,0 +1,121 @@
+.flight-card {
+  background-color: #D9D9D9;
+  color: black;
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 768px;
+  width: 100%;
+}
+
+.flight-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.flight-main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.airport-info {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.airport-info.left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.airport-info.right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.flight-city {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827; 
+  margin-bottom: 0.25rem;
+}
+
+.flight-airport {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+
+.flight-code {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.flight-airport {
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.flight-plane {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.flight-plane img {
+  height: 40px;
+  width: auto;
+}
+
+.flight-time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.time-block,
+.time-block-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.time {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: black;
+  margin-top: 0.25rem;
+}
+
+.flight-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.flight-price {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.flight-note {
+  font-size: 0.875rem;
+  color: #6b7280;
+}

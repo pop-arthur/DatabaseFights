@@ -1,0 +1,31 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 20px;
+  background: linear-gradient(to right, #B1E4F5, #4C97B0);
+  border-radius: 0 0 12px 12px;
+  font-family: 'ADLaM Display', sans-serif;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+.nav-item {
+  color: #333940;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background: #4C97B0;
+  color: white;
+}
+

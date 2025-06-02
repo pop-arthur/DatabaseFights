@@ -1,0 +1,98 @@
+.input {
+  height: 40px;
+  width: 100%;
+  background-color: #05060f0a;
+  border-radius: .5rem;
+    padding: 5px 8px;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  transition: border-color .3s, color .3s, background .2s;
+  box-sizing: border-box;
+  margin-bottom: 2px;
+}
+
+.label {
+  display: block;
+  margin-bottom: .3rem;
+  font-size: .9rem;
+  font-weight: bold;
+  color: #05060f99;
+}
+
+.input:hover,
+.input:focus,
+.input-group:hover .input {
+  outline: none;
+  border-color: #4C97B0;
+}
+
+.input-group:hover .label,
+.input:focus {
+  color: #05060fc2;
+}
+
+.edit-btn {
+  background: #4C97B0;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.save-btn {
+  background: #4CAF50;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* AirportRow.css */
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 4px;
+  height: 40px;
+  width: 85px;
+  border: none;
+  background: #4c97b02d;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.label {
+  line-height: 22px;
+  font-size: 16px;
+  color: #4C97B0;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+
+.button:hover {
+  background: #4c97b050;
+}
+
+.button:hover .svg-icon {
+  animation: lr 1s linear infinite;
+}
+
+@keyframes lr {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-1px);
+  }
+  75% {
+    transform: translateX(1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
