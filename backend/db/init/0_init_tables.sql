@@ -1,25 +1,27 @@
 CREATE TABLE Airlines
 (
     id   SERIAL PRIMARY KEY,
-    nam  VARCHAR(10),
-    code VARCHAR(10)
+    nam  VARCHAR(40),
+    code VARCHAR(20)
 );
 
 CREATE TABLE Aircrafts
 (
     id           SERIAL PRIMARY KEY,
-    model        VARCHAR(10),
-    registration VARCHAR(10)
+    model        VARCHAR(20),
+    registration VARCHAR(20)
 );
 
 CREATE TABLE Airports
 (
     id      SERIAL PRIMARY KEY,
-    name    VARCHAR(10),
-    code    VARCHAR(10),
-    city    VARCHAR(10),
-    country VARCHAR(10)
+    name    VARCHAR(40),
+    code    VARCHAR(20),
+    city    VARCHAR(20),
+    country VARCHAR(20)
 );
+
+
 
 CREATE TABLE Flights
 (
@@ -29,8 +31,18 @@ CREATE TABLE Flights
     departure_airport INT REFERENCES Airports (id),
     arrival_airport   INT REFERENCES Airports (id),
     departure_time    TIMESTAMP,
-    status            VARCHAR(10),
+    status            VARCHAR(20),
     delay             INTERVAL,
     arrival_time      TIMESTAMP,
-    flight_number     VARCHAR(10)
+    flight_number     VARCHAR(20)
 );
+
+
+CREATE SEQUENCE flight_id_seq
+    START WITH 1000
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+ALTER TABLE Flights ALTER COLUMN id SET DEFAULT nextval('flight_id_seq');
