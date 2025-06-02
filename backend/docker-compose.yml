@@ -19,6 +19,8 @@ services:
     build: ./app
     container_name: fastapi_backend
     restart: always
+    environment:
+      - PYTHONPATH=/app
     ports:
       - "8000:8000"
     depends_on:
