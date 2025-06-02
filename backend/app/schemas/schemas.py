@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from datetime import date, timedelta
+from datetime import datetime, timedelta
 
 # Airlines
 class AirlineIn(BaseModel):
@@ -33,8 +33,8 @@ class FlightIn(BaseModel):
     aircraft_id: int
     departure_airport: int
     arrival_airport: int
-    departure_time: date
-    arrival_time: date
+    departure_time: datetime
+    arrival_time: datetime
     status: str
     delay: timedelta
     flight_number: str

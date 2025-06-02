@@ -28,9 +28,9 @@ CREATE TABLE Flights
     aircraft_id       INT REFERENCES Aircrafts (id),
     departure_airport INT REFERENCES Airports (id),
     arrival_airport   INT REFERENCES Airports (id),
-    departure_time    DATE,
+    departure_time    TIMESTAMP,
     status            VARCHAR(10),
     delay             INTERVAL,
-    arrival_time      DATE,
+    arrival_time      TIMESTAMP,
     flight_number     VARCHAR(10)
 );
