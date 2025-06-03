@@ -13,6 +13,11 @@ export default function Flights() {
       .catch(console.error);
   }, []);
 
+  const handleDelete = (id) => {
+  setFlights((prev) => prev.filter((f) => f.id !== id));
+};
+
+
   const handleUpdate = (updatedFlight) => {
     setFlights((prev) =>
       prev.map((f) => (f.id === updatedFlight.id ? updatedFlight : f))
@@ -50,24 +55,32 @@ export default function Flights() {
         <table>
           <thead>
             <tr>
-              <th className="id-col">ID</th>
-              <th>Flight Number</th>
-              <th>Status</th>
-              <th>Delay</th>
-              <th>Departure</th>
-              <th>Arrival</th>
-              <th>Edit</th>
+                <th className="id-col">ID</th>
+                <th>Flight Number</th>
+                <th>Status</th>
+                <th>Delay</th>
+                <th>Departure</th>
+                <th>Arrival</th>
+                <th>Airline ID</th>
+                <th>Aircraft ID</th>
+                <th>From Airport</th>
+                <th>To Airport</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
-          </thead>
+            </thead>
+
           <tbody>
             {filteredFlights.map((flight) => (
-              <FlightRow
+                <FlightRow
                 key={flight.id}
                 flight={flight}
                 onUpdate={handleUpdate}
-              />
+                onDelete={handleDelete}
+                />
             ))}
-          </tbody>
+            </tbody>
+
         </table>
       </div>
     </div>

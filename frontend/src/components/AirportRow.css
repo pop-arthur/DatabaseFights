@@ -49,23 +49,6 @@
   cursor: pointer;
 }
 
-
-/* AirportRow.css */
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 12px;
-  gap: 4px;
-  height: 40px;
-  width: 85px;
-  border: none;
-  background: #4c97b02d;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
 .label {
   line-height: 22px;
   font-size: 16px;
@@ -74,8 +57,39 @@
   letter-spacing: 1px;
 }
 
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 6px;
+  height: 40px;
+  width: 100px;
+  border: none;
+  background: #4c97b02d;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
 .button:hover {
   background: #4c97b050;
+}
+
+.label {
+  font-size: 16px;
+  color: #4C97B0;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.svg-icon {
+  width: 18px;
+  height: 18px;
+  fill: #4C97B0;
 }
 
 .button:hover .svg-icon {
@@ -83,16 +97,9 @@
 }
 
 @keyframes lr {
-  0% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-1px);
-  }
-  75% {
-    transform: translateX(1px);
-  }
-  100% {
-    transform: translateX(0);
-  }
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-1px); }
+  75% { transform: translateX(1px); }
+  100% { transform: translateX(0); }
 }
+

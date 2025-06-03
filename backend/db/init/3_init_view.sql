@@ -26,10 +26,9 @@ SELECT
     f.status,
     f.delay,
 
-    -- вычисляем длительность с учётом задержки
     get_flight_duration(f.id) AS duration_with_delay
-FROM Flights f
-JOIN Airlines a ON f.airline_id = a.id
-JOIN Aircrafts ac ON f.aircraft_id = ac.id
-JOIN Airports dap ON f.departure_airport = dap.id
-JOIN Airports aap ON f.arrival_airport = aap.id;
+    FROM Flights f
+    JOIN Airlines a ON f.airline_id = a.id
+    JOIN Aircrafts ac ON f.aircraft_id = ac.id
+    JOIN Airports dap ON f.departure_airport = dap.id
+    JOIN Airports aap ON f.arrival_airport = aap.id;

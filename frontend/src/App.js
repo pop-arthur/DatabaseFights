@@ -5,6 +5,7 @@ import Flights from './pages/Flights';
 import Airports from './pages/Airports';
 import Airlines from './pages/Airlines';
 import Aircrafts from './pages/Aircrafts';
+import Logs from './pages/Logs';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/airports" element={<Airports />} />
         <Route path="/airlines" element={<Airlines />} />
         <Route path="/aircrafts" element={<Aircrafts />} />
+        <Route path="/logs" element={<Logs />} />
       </Routes>
     </Router>
   );

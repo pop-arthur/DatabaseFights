@@ -10,7 +10,7 @@
 .table-container {
   width: 90%;
   max-width: 1200px;
-  overflow-x: hidden;
+  overflow-x: auto;
   margin-top: 40px;
 }
 

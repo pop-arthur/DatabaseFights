@@ -8,7 +8,8 @@ export default function Navbar() {
     { name: 'Flights', path: '/flights' },
     { name: 'Airports', path: '/airports' },
     { name: 'Airlines', path: '/airlines' },
-    { name: 'Aircrafts', path: '/aircrafts' }
+    { name: 'Aircrafts', path: '/aircrafts' }, 
+    { name: 'Logs', path: '/logs' }
   ];
 
   return (
