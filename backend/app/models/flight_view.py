@@ -31,13 +31,13 @@ def get_flight_view():
         "departure_airport_name": r[7],
         "departure_city": r[8],
         "departure_country": r[9],
-        "departure_time": r[10],
+        "departure_time": str(r[10]).replace("T", " "),
         "arrival_airport_code": r[11],
         "arrival_airport_name": r[12],
         "arrival_city": r[13],
         "arrival_country": r[14],
-        "arrival_time": r[15],
+        "arrival_time": str(r[15]).replace("T", " "),
         "status": r[16],
-        "delay": r[17],
-        "duration_with_delay": r[18]
+        "delay": str(r[17])[2:],
+        "duration_with_delay": str(r[18])[2:]
     } for r in rows]

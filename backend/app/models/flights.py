@@ -8,11 +8,12 @@ def get_flights():
     rows = cur.fetchall()
     cur.close()
     conn.close()
+
     return [{
         "id": r[0], "airline_id": r[1], "aircraft_id": r[2],
         "departure_airport": r[3], "arrival_airport": r[4],
-        "departure_time": r[5], "arrival_time": r[6],
-        "status": r[7], "delay": r[8], "flight_number": r[9]
+        "departure_time": str(r[5]).replace('T', ' '), "arrival_time": str(r[6]).replace('T', ' '),
+        "status": r[7], "delay": str(r[8])[2:], "flight_number": r[9]
     } for r in rows]
 
 def add_flight(airline_id, aircraft_id, departure_airport, arrival_airport,

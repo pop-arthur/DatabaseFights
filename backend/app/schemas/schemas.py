@@ -33,10 +33,10 @@ class FlightIn(BaseModel):
     aircraft_id: int
     departure_airport: int
     arrival_airport: int
-    departure_time: datetime
-    arrival_time: datetime
+    departure_time: str
+    arrival_time: str
     status: str
-    delay: timedelta
+    delay: str
     flight_number: str
 
 class Flight(FlightIn):
@@ -54,19 +54,19 @@ class FlightViewOut(BaseModel):
     departure_airport_name: str
     departure_city: str
     departure_country: str
-    departure_time: datetime
+    departure_time: str
     arrival_airport_code: str
     arrival_airport_name: str
     arrival_city: str
     arrival_country: str
-    arrival_time: datetime
+    arrival_time: str
     status: str
-    delay: timedelta
-    duration_with_delay: timedelta
+    delay: str
+    duration_with_delay: str
 
 class FlightStatusLogOut(BaseModel):
     id: int
     flight_id: int
     old_status: str
     new_status: str
-    changed_at: datetime
+    changed_at: str
