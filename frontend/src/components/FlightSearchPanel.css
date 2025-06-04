@@ -1,0 +1,76 @@
+.search-panel {
+  width: 400px !important;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 28px 24px;
+  padding-top: 70px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.search-title {
+  font-family: 'ADLaM Display', cursive;
+  font-size: 26px;
+  color: #333940;
+  margin-bottom: 24px;
+}
+
+
+.search-panel label {
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  color: #333940;
+  font-weight: 600;
+}
+
+.search-panel input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #4C97B0;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.search-panel input:focus {
+  border-color: #B1E4F5;
+  outline: none;
+}
+
+.search-panel button {
+  margin-top: 24px;
+  width: 100%;
+  padding: 12px;
+  background-color: #4C97B0;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.search-panel button:hover {
+  background-color: #3a7e93;
+}
+
+.clear-btn {
+  margin-top: 14px;
+  width: 100%;
+  padding: 12px;
+  background-color: #B1E4F5;
+  color: #333940;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.clear-btn:hover {
+  background-color: #9cd8ef;
+}
